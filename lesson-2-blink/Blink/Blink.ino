@@ -28,10 +28,17 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
+int delay_s = 1000;
+int delay_change = 100;
+int delay_limit = 100;
+
 // the loop function runs over and over again forever
 void loop() {
+  if (delay_s > delay_limit) {
+    delay_s -= delay_change;
+  }
   digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
+  delay(delay_s);                      // wait for 5 seconds
   digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
+  delay(delay_s);                      // wait for 2 seconds
 }
